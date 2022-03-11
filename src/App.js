@@ -1,7 +1,7 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom'
 import Home from './components/home.jsx'
-import { Container } from './components/layout/container';
+import Container from './components/layout/container';
 import RequireAuth from './helper/RequireAuth';
 
 function App() {
@@ -11,13 +11,11 @@ function App() {
         <Routes>
           <Route path="/" element={
             <RequireAuth>
-              
+              <Home/>
             </RequireAuth>
-          }/>
-
-          
+          }/> 
         </Routes>
-      <Home></Home>
+     
       </Container>
        
         

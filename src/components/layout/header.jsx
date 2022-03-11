@@ -2,6 +2,8 @@ import {Link} from 'react-router-dom'
 
 export default function Header(){
     return (
-        <nav></nav>
+        <nav>
+            <Link to="/">Accueil</Link>
+        </nav>
     )
 }

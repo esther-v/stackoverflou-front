@@ -4,6 +4,9 @@ export default function Container({children}) {
     return(
         <div>
             <Header/>
+            <main>
+                {children}
+            </main>
         </div>
     )
 }

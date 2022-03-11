@@ -20,12 +20,12 @@ export const loginUser = (data) => {
         })
 }
 
-export const checkTojen = () => {
-    return axios.get(`${process.env.REACT_APP_API_URL}/api/auth/checkToken`, {headers: {authorization}})
-        .then((response) => {
-            return response.data
-        })
-        .catch((err)=> {
-            console.log(err)
-        })
-}
+// export const checkToken = () => {
+//     return axios.get(`${process.env.REACT_APP_API_URL}/api/auth/checkToken`, {headers: {authorization}})
+//         .then((response) => {
+//             return response.data
+//         })
+//         .catch((err)=> {
+//             console.log(err)
+//         })
+// }
