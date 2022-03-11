@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
 import {loginUser} from '../../api/user';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 export default function Login(){
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
 
     const onSubmitForm = () => {
         const data = {
-            
             email,
             password
         }
-        console.log(data)
+
         loginUser(data)
             .then((res) => {
                 console.log(res)
@@ -43,7 +42,7 @@ export default function Login(){
                         placeholder="Nom"
                         value={email}
                         onChange={(e)=>{
-                            setLastName(e.target.value)
+                            setEmail(e.target.value)
                         }}
                     />
                 </div>
@@ -51,9 +50,9 @@ export default function Login(){
                     <input 
                         type="password" 
                         placeholder="Pseudo"
-                        value={nickName}
+                        value={password}
                         onChange={(e)=>{
-                            setNickName(e.target.value)
+                            setPassword(e.target.value)
                         }}
                     />
                 </div>

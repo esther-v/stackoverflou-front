@@ -19,7 +19,7 @@ export default function Register(){
             email,
             password
         }
-        console.log(data)
+       
         saveUser(data)
             .then((res) => {
                 console.log(res)
@@ -68,6 +68,26 @@ export default function Register(){
                         value={nickName}
                         onChange={(e)=>{
                             setNickName(e.target.value)
+                        }}
+                    />
+                </div>
+                <div>
+                    <input 
+                        type="text" 
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e)=>{
+                            setEmail(e.target.value)
+                        }}
+                    />
+                </div>
+                <div>
+                    <input 
+                        type="password" 
+                        placeholder="Mot de passe"
+                        value={password}
+                        onChange={(e)=>{
+                            setPassword(e.target.value)
                         }}
                     />
                 </div>
