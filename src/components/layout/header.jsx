@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 
 export default function Header(){
     return (
-        <nav>
+        <nav className="header">
             <Link to="/">Accueil</Link>
             <Link to="/register">S'enregistrer</Link>
             <Link to="/login">Se connecter</Link>

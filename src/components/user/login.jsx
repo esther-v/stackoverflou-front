@@ -1,58 +1,57 @@
 import React, {useState} from 'react';
-import {loginUser} from '../../api/user';
 //import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../api/user';
 
-export default function Login(){
-
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+export default function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     //const navigate = useNavigate()
 
-    const onSubmitForm = () => {
+
+    const onSubmitForm = ()=>{
         const data = {
             email,
             password
         }
 
         loginUser(data)
-            .then((res) => {
+            .then((res)=>{
                 console.log(res)
                 if(res.status === 200) {
-                    window.localStorage.setItem("stackoverflou-token", res.data.token)
+                    window.localStorage.setItem("stackoverflou-token", res.data.token);
                 }
-            })
+            })     
     }
 
-    return(
+    return (
         <>
             <form 
-            className="block custom-form"
-            onSubmit={(e) => {
-                e.preventDefault()
-                onSubmitForm()
-            }}
+                className="custom-form"
+                onSubmit={(e)=>{
+                    e.preventDefault();
+                    onSubmitForm()
+                }}
             >
                 <div>
-                    <label>S'enregistrer</label>
+                    <label>Se connecter</label>
                 </div>
-                
                 <div>
-                    <input 
-                        type="email" 
-                        placeholder="Nom"
+                    <input
+                        type="text"
+                        placeholder="Email"
                         value={email}
                         onChange={(e)=>{
-                            setEmail(e.target.value)
+                            setEmail(e.target.value);
                         }}
                     />
                 </div>
                 <div>
-                    <input 
-                        type="password" 
-                        placeholder="Pseudo"
+                    <input
+                        type="password"
+                        placeholder="Mot de passe"
                         value={password}
                         onChange={(e)=>{
-                            setPassword(e.target.value)
+                            setPassword(e.target.value);
                         }}
                     />
                 </div>

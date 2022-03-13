@@ -31,6 +31,6 @@ export default function RequireAuth({children, withAuth}) {
         }
     })
   
-    return (<>children</>)
+    return (<>{children}</>)
   
 }
