@@ -10,7 +10,7 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate()
 
-    const onSubmitForm = ()=>{
+    const onSubmitForm = () =>{
         const data = {
             firstName, 
             lastName,
