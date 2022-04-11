@@ -11,14 +11,7 @@ export default function Register() {
     const navigate = useNavigate()
 
     const onSubmitForm = () =>{
-        const data = {
-            firstName, 
-            lastName,
-            nickName,
-            email,
-            password
-        }
-
+        const data = { firstName, lastName, nickName, email, password}
         saveUser(data)
             .then((res)=>{
                 if(res.status === 200) {

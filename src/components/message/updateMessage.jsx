@@ -1,30 +1,34 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { saveMessage } from '../../api/message';
+import { getMessageById, updateMessage } from '../../api/message';
 import { useNavigate } from 'react-router-dom';
 
-export default function AddMessage() {
-
-    const [content, setContent] = useState("")
-    const params = useParams()
-    const {topic_id} = params
-    const user = useSelector(state => state.user)
+export default function UpdateMessage() {
+    const [content, setContent] = useState("");
+    const params = useParams();
+    const {message_id} = params
     const navigate = useNavigate()
+
+    useEffect(()=>{ 
+        getMessageById(message_id)
+            .then((res) => {
+                setContent(res.message.content)
+            })
+    }, [message_id])
 
     const onSubmitForm = () => {
         const data = {
-            content: content,
-            user_id: user.infos._id,
-            topic_id: topic_id
+            content: content
         }
 
-        saveMessage(data)
+    const {message_id} = params
+        updateMessage(data, message_id)
             .then((res) => {
                 if(res.status === 200) {
-                    return navigate(`/topic/${topic_id}`)
+                    return navigate("/admin")
                 }
             })
+
     }
 
     return (
@@ -37,15 +41,15 @@ export default function AddMessage() {
                 }}
             >
                 <div>
-                    <label>Ajouter un message</label>
+                    <label>Editez un message</label>
                 </div>
                 <div>
                     <input
                         type="text"
                         placeholder="Tapez votre message"
                         value={content}
-                        onChange={(e)=>{
-                            setContent(e.target.value);
+                        onChange={(e) => {
+                            setContent(e.target.value)
                         }}
                     />
                 </div>

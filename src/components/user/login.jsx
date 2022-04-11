@@ -9,14 +9,9 @@ export default function Login() {
 
 
     const onSubmitForm = ()=>{
-        const data = {
-            email,
-            password
-        }
-
+        const data = { email, password}
         loginUser(data)
             .then((res)=>{
-                console.log(res)
                 if(res.status === 200) {
                     window.localStorage.setItem("stackoverflou-token", res.data.token);
                     return navigate("/")

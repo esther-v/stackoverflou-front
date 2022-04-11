@@ -5,18 +5,16 @@ import { Link } from 'react-router-dom';
 export default function Topics() {
     const [topics, setTopics] = useState([])
     useEffect(() => {
-        console.log("useEffect")
         getTopics()
-            .then((res)=>{
-                console.log(res)
+            .then((res) => {
                 setTopics(res.topics)
             })
-    }, []);
+    }, [])
 
     return (
         <>
-            <h2>Tous les topics</h2>
-            <Link to="/addTopic">Ajouter un topic</Link>
+            <h2>Tous les Topics</h2>
+            <Link to="/addTopic">Ajouter un Topic</Link>
             <ul>
                 {topics.map(topic => (
                     <li key={topic._id}>
