@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { checkToken } from '../api/user';
-import {loginUserReducer} from '../lib/redux/user/userReducer'
+import { loginUserReducer } from '../lib/redux/user/userReducer';
 
 export default function RequireAuth({children, withAuth}) {
   
@@ -23,7 +23,7 @@ export default function RequireAuth({children, withAuth}) {
                     if(res.status !== 200){
                         return navigate("/login")
                     } else {
-                        dispatch(loginUserReducer(res.data.user))
+                        dispatch(loginUserReducer({}))
                     }
                 })
             }
