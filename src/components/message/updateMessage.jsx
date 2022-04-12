@@ -12,6 +12,7 @@ export default function UpdateMessage() {
     useEffect(()=>{ 
         getMessageById(message_id)
             .then((res) => {
+                console.log(res)
                 setContent(res.message.content)
             })
     }, [message_id])

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const saveMessage = (data) => {
-    const token = window.localStorage.getItem('stackeoverflou-token')
+    const token = window.localStorage.getItem('stackoverflou-token')
 
     if(token) {
         return axios.post(`${process.env.REACT_APP_API_URL}/api/message/save`, data, {headers: {authorization: token}})
